@@ -1,2 +1,2 @@
-# echoes-within
-Emotional journal with integrated AI analysis
+Emotional Journal application with AI integration for mood analysis.
+
