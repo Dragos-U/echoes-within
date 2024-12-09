@@ -1,7 +1,7 @@
 import {auth} from "@clerk/nextjs/server";
 import Link from "next/link";
 
-export default async function Home() {
+export default async function LandingPage() {
     const {userId} = await auth();
 
     let href = userId ? '/journal' : '/new-user';
