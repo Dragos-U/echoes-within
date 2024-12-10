@@ -2,7 +2,7 @@ import getUserByClerkId from "@/utils/auth";
 import {prisma} from "@/utils/db";
 import {NextResponse} from "next/server";
 import {revalidatePath} from "next/cache";
-import {analyzeEntry} from "@/utils/ai";
+import {analyzeEntry} from "@/services/ai";
 
 export async function POST(){
     const user = await getUserByClerkId();

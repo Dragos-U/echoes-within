@@ -1,8 +1,7 @@
 import getUserByClerkId from "@/utils/auth";
 import {prisma} from "@/utils/db";
 import {NextResponse} from "next/server";
-import entry from "next/dist/server/typescript/rules/entry";
-import {analyzeEntry} from "@/utils/ai";
+import {analyzeEntry} from "@/services/ai";
 
 export async function PATCH(request, {params}) {
     const {id} = await params;
@@ -20,7 +19,7 @@ export async function PATCH(request, {params}) {
         }
     })
 
-    const analysis = await analyzeEntry(entry)
+    const analysis = await analyzeEntry(content)
     if (analysis) {
         analysis.negative = analysis.negative.toLowerCase() === 'yes';
     }

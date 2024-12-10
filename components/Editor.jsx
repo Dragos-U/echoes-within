@@ -7,9 +7,10 @@ import {updateEntry} from "@/utils/api";
 export default  function EditorPage({entry}) {
     const [value, setValue] = useState(entry.content);
     const [isLoading, setIsLoading] = useState(false);
-    const [analysis, setAnalysis] = useState(entry.analysis);
+    const [analysis, setAnalysis] = useState(entry.analysis || {});
 
     const {subject, summary, mood, negative, color} =  analysis;
+
     const analysisData = [
         {name: 'Subject', value: subject},
         {name: 'Summary', value: summary},
