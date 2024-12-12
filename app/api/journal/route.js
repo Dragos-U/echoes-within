@@ -1,8 +1,8 @@
-import getUserByClerkId from "@/utils/auth";
+import getUserByClerkId from "@/services/authService";
 import {prisma} from "@/utils/db";
 import {NextResponse} from "next/server";
 import {revalidatePath} from "next/cache";
-import {analyzeEntry} from "@/services/ai";
+import {analyzeEntry} from "@/services/aiService";
 
 export async function POST(){
     const user = await getUserByClerkId();

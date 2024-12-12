@@ -1,5 +1,5 @@
-import getUserByClerkId from "@/utils/auth";
-import {questionAnalysis} from "@/services/ai";
+import getUserByClerkId from "@/services/authService";
+import {questionAnalysis} from "@/services/aiService";
 import {NextResponse} from "next/server";
 
 export async function POST(request) {

@@ -1,5 +1,5 @@
 import Editor from '@/components/Editor'
-import getUserByClerkId from "@/utils/auth";
+import getUserByClerkId from "@/services/authService";
 import {prisma} from "@/utils/db";
 
 async function getEntry(id) {

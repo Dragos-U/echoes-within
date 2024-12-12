@@ -1,4 +1,4 @@
-import getUserByClerkId from "@/utils/auth";
+import getUserByClerkId from "@/services/authService";
 import Chart from "@/components/Chart";
 
 async function getData() {

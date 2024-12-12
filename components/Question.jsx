@@ -1,7 +1,7 @@
 'use client'
 
 import {useState} from "react";
-import {askQuestion} from "@/utils/api";
+import {askQuestion} from "@/services/apiService";
 
 export default function Question() {
     const [value, setValue] = useState('');

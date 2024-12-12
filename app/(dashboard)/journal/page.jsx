@@ -1,4 +1,4 @@
-import getUserByClerkId from "@/utils/auth";
+import getUserByClerkId from "@/services/authService";
 import {prisma} from "@/utils/db";
 import NewEntryCard from "@/components/NewEntryCard";
 import EntryCard from "@/components/EntryCard";

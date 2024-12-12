@@ -2,7 +2,7 @@
 
 import {useState} from "react";
 import {useAutosave} from "react-autosave";
-import {updateEntry} from "@/utils/api";
+import {updateEntry} from "@/services/apiService";
 
 export default  function EditorPage({entry}) {
     const [value, setValue] = useState(entry.content);

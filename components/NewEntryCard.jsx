@@ -1,6 +1,6 @@
 'use client'
 
-import {createNewEntry} from "@/utils/api";
+import {createNewEntry} from "@/services/apiService";
 import {useRouter} from "next/navigation";
 
 export default function NewEntryCard(){

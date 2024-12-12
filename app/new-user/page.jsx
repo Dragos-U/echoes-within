@@ -1,28 +1,12 @@
-import {prisma} from "@/utils/db";
-import {currentUser} from "@clerk/nextjs/server";
 import {redirect} from "next/navigation";
+import {createNewUserIfNotExists} from "@/services/userService";
 
 async function createNewUser() {
-    let existingUser = await currentUser();
-
-    const dbUser = await prisma.user.findUnique({
-        where: {
-            clerkId: existingUser.id,
-        }
-    })
-
-    if (!dbUser) {
-        await prisma.user.create({
-            data: {
-                clerkId: existingUser.id,
-                email: existingUser?.emailAddresses[0].emailAddress,
-            }
-        })
-    }
+    await createNewUserIfNotExists();
     redirect('/journal');
 }
 
 export default async function NewUser() {
     await createNewUser();
-    return <h1>...Loading </h1>
+    return <h1>Loading...</h1>;
 }

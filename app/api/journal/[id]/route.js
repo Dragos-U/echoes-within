@@ -1,7 +1,7 @@
-import getUserByClerkId from "@/utils/auth";
+import getUserByClerkId from "@/services/authService";
 import {prisma} from "@/utils/db";
 import {NextResponse} from "next/server";
-import {analyzeEntry} from "@/services/ai";
+import {analyzeEntry} from "@/services/aiService";
 
 export async function PATCH(request, {params}) {
     const {id} = await params;
