@@ -1,31 +1,34 @@
 import getUserByClerkId from "@/services/authService";
-import {prisma} from "@/utils/db";
+
 import {NextResponse} from "next/server";
 import {revalidatePath} from "next/cache";
 import {analyzeEntry} from "@/services/aiService";
+import {API_STATUS} from "@/constants/responseTypes";
+import * as journalService from '@/services/journalService'
 
-export async function POST(){
-    const user = await getUserByClerkId();
-    const entry = await prisma.journalEntry.create({
-         data: {
-             userId: user.id,
-             content: 'Write about your day '
-         }
-    })
-    const analysis = await analyzeEntry(entry.content)
+export async function POST() {
+    try {
+        const user = await getUserByClerkId();
+        const entry = await journalService.createJournalEntry(user.id,'Write about your day')
+        const analysis = await analyzeEntry(entry.content)
 
-    if (analysis) {
-        analysis.negative = analysis.negative.toLowerCase() === 'yes';
-    }
-
-    await prisma.analysis.create({
-        data:{
-            userId: user.id,
-            entryId: entry.id,
-            ...analysis//(analysis || {})
+        if (analysis) {
+            analysis.negative = analysis.negative.toLowerCase() === 'yes';
         }
-    })
 
-    revalidatePath('/journal')
-    return NextResponse.json({data:entry});
- }
+        await journalService.createAnalysis(user.id, entry.id, analysis);
+
+        revalidatePath('/journal')
+
+        return NextResponse.json({
+            status: API_STATUS.SUCCESS,
+            data: entry
+        });
+    } catch (error) {
+        console.error(`Error creating entry: ${error}`);
+        return NextResponse.json({
+            status: API_STATUS.ERROR,
+            error: 'Failed to create entry'
+        });
+    }
+}

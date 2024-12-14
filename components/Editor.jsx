@@ -20,9 +20,9 @@ export default  function EditorPage({entry}) {
 
     useAutosave({
         data: value,
-        onSave: async (_value) => {
+        onSave: async (newValue) => {
             setIsLoading(true);
-            const  data = await updateEntry(entry.id, _value)
+            const  data = await updateEntry(entry.id, newValue)
             setAnalysis(data.analysis  )
             setIsLoading(false)
         }
@@ -31,7 +31,12 @@ export default  function EditorPage({entry}) {
         <div className='w-full h-full grid grid-cols-3 '>
             <div className='col-span-2 '>
                 {isLoading && <div>...loading</div>}
-                <textarea className='w-full h-full  p-8 text-xl outline-none' value={value}
+                <textarea
+                    disabled={isLoading}
+                    className={`w-full h-full p-8 text-xl outline-none ${
+                        isLoading ? 'opacity-50' : ''
+                    }`}
+                    value={value}
                           onChange={e => setValue(e.target.value)}/>
             </div>
             <div className='border-l border-b/3 '>

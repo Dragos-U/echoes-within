@@ -1,21 +1,8 @@
-import getUserByClerkId from "@/services/authService";
-import {prisma} from "@/utils/db";
 import NewEntryCard from "@/components/NewEntryCard";
 import EntryCard from "@/components/EntryCard";
 import Link from "next/link";
 import Question from "@/components/Question";
-
-async function getEntries() {
-    const user = await getUserByClerkId();
-    return await prisma.JournalEntry.findMany({
-        where: {
-            userId: user.id,
-        },
-        orderBy: {
-            createdAt: 'desc',
-        }
-    })
-}
+import {getEntries} from "@/services/journalService"
 
 export default async function JournalPage() {
     const entries = await getEntries();

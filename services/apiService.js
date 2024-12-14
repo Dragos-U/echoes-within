@@ -1,17 +1,17 @@
 import {createURL} from '@/utils/url'
+import {API_ROUTES} from "@/constants/routes";
 
 /**
  * Creates a new journal entry by sending a POST request to the server.
  * @returns {Promise<Object>} A promise that resolves to the data of the newly created journal entry.
  * @throws {Error} Will throw an error if the network request fails or the response is not OK.
  */
-export async function createNewEntry(){
-    const res = await fetch(new Request(createURL('/api/journal')),
-        {
-            method: 'POST',
-        })
-    if(res.ok) {
-        const data= await res.json();
+export async function createNewEntry() {
+    const res = await fetch(createURL(API_ROUTES.JOURNAL),
+        {method: 'POST'});
+
+    if (res.ok) {
+        const data = await res.json();
         return data.data;
     } else {
         throw new Error('Failed to create a new journal entry');
@@ -25,13 +25,15 @@ export async function createNewEntry(){
  * @returns {Promise<Object>} A promise that resolves to the updated journal entry data.
  * @throws {Error} Will throw an error if the network request fails or the response is not OK.
  */
-export async function updateEntry(id, content){
-    const res = await fetch(new Request(createURL(`/api/journal/${id}`)),{
-        method: 'PATCH',
-        body: JSON.stringify({content})
-    })
+export async function updateEntry(id, content) {
+    const res = await fetch(createURL(API_ROUTES.JOURNAL_BY_ID(id)),
+        {
+            method: 'PATCH',
+            body: JSON.stringify({content})
+        }
+    );
 
-    if(res.ok){
+    if (res.ok) {
         const data = await res.json();
         return data.data;
     } else {
@@ -45,17 +47,17 @@ export async function updateEntry(id, content){
  * @returns {Promise<Object>} A promise that resolves to the answer data from the server.
  * @throws {Error} Will throw an error if the network request fails or the response is not OK.
  */
-export async function askQuestion(question){
-    const res = await fetch(new Request(createURL('/api/question')),
+export async function askQuestion(question) {
+    const res = await fetch(createURL(API_ROUTES.QUESTION),
         {
             method: 'POST',
             body: JSON.stringify({question})
-        })
-    if(res.ok) {
-        const data= await res.json();
+        });
+
+    if (res.ok) {
+        const data = await res.json();
         return data.data;
-    }
-    else {
+    } else {
         throw new Error('Failed to retrieve an answer for the question');
     }
 }
