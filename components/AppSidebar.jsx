@@ -1,4 +1,4 @@
-import { Home, BookOpen, History } from "lucide-react"
+import { Home, BookOpen, ChartLine } from "lucide-react"
 import {
     Sidebar,
     SidebarContent,
@@ -25,14 +25,14 @@ const items = [
     {
         title: "History",
         url: "/history",
-        icon: History,
+        icon: ChartLine,
     },
 ]
 
 export function AppSidebar() {
     return (
-        <Sidebar>
-            <SidebarContent>
+        <Sidebar variant='inset'>
+            <SidebarContent className='font-mono'>
                 <SidebarGroup>
                     <SidebarGroupLabel>Menu</SidebarGroupLabel>
                     <SidebarGroupContent>
