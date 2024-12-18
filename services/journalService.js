@@ -88,6 +88,9 @@ export async function getEntries() {
         },
         orderBy: {
             createdAt: 'desc',
+        },
+        include:{
+            analysis: true
         }
     })
 }

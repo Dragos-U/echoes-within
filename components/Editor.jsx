@@ -5,6 +5,7 @@ import {useAutosave} from "react-autosave";
 import {updateEntry} from "@/services/apiService";
 
 export default  function EditorPage({entry}) {
+    console.log(entry);
     const [value, setValue] = useState(entry.content);
     const [isLoading, setIsLoading] = useState(false);
     const [analysis, setAnalysis] = useState(entry.analysis || {});

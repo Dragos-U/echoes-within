@@ -24,19 +24,21 @@ export default function Question() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                className='flex gap-3'>
                 <input
                     disabled={loading}
                     value={value}
                     onChange={onChange}
                     type='text'
                     placeholder='Ask a question'
-                className='border border-black/20 px-4 py-2 text-lg rounded-lg'
+                className='border border-black/20 px-4 py-2 rounded-lg'
                 />
                 <button
                     disabled={loading}
                     type='submit'
-                    className='bg-blue-400 px-4 py-2 rounded-lg text-lg'>
+                    className='bg-blue-400 px-4 py-2 rounded-lg '>
                     Ask
                 </button>
             </form>
