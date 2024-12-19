@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {askQuestion} from "@/services/apiService";
 
-export default function Question() {
+export default function AskAI() {
     const [value, setValue] = useState('');
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
@@ -32,13 +32,13 @@ export default function Question() {
                     value={value}
                     onChange={onChange}
                     type='text'
-                    placeholder='Ask a question'
-                className='border border-black/20 px-4 py-2 rounded-lg'
+                    placeholder='Ask your journal...'
+                className='flex-1 border border-black/20 px-4 py-2 rounded-lg'
                 />
                 <button
                     disabled={loading}
                     type='submit'
-                    className='bg-blue-400 px-4 py-2 rounded-lg '>
+                    className='bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-lg '>
                     Ask
                 </button>
             </form>

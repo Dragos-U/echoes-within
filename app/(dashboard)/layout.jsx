@@ -2,13 +2,14 @@ import {UserButton} from "@clerk/nextjs";
 import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar"
 import {AppSidebar} from "@/components/AppSidebar"
 import {currentUser} from "@clerk/nextjs/server";
+import {outfit} from "@/fonts/fonts";
 
 export default async function Dashboard({children}) {
     const user = await currentUser();
     const firstName = user.firstName;
 
     return (
-        <div className='relative h-screen font-mono'>
+        <div className={`relative h-screen ${outfit.className} `}>
             <SidebarProvider defaultOpen={true}>
                 <AppSidebar/>
                 <div className='w-full h-full'>

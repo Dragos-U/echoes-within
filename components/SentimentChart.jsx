@@ -30,7 +30,7 @@ function CustomTooltip ({payload, label, active}){
 }
 
 
-export default function Chart({data}) {
+export default function SentimentChart({data}) {
     return (
         <ResponsiveContainer width="100%" height="100%">
             <LineChart width={300} height={100} data={data}>

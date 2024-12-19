@@ -1,4 +1,4 @@
-import Chart from "@/components/Chart";
+import SentimentChart from "@/components/SentimentChart";
 import {getData} from "@/services/journalService";
 
 export default async function History() {
@@ -8,7 +8,7 @@ export default async function History() {
         <div className='w-full h-full'>
             <div>{`Average sentiment: ${avg}`}</div>
             <div className='w-full h-full'>
-                <Chart data={analyses}/>
+                <SentimentChart data={analyses}/>
             </div>
         </div>
     )

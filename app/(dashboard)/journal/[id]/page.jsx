@@ -6,8 +6,8 @@ export default async function EntryPage({params}) {
     const entry = await getEntry(id);
 
     return (
-        <div className='h-full w-full'>
-                <Editor entry={entry}/>
+        <div className="min-h-screen bg-white">
+            <Editor entry={entry}/>
         </div>
     )
 }
