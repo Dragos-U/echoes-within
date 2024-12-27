@@ -1,6 +1,7 @@
-export default function AnalysisPanel({ analysis }) {
-    const { subject, summary, mood, negative, color } = analysis;
+import DeleteButton from '@/components/DeleteButton';
 
+export default function AnalysisPanel({ analysis, entryId, onDeleteStart }) {
+    const { subject, summary, mood, negative, color } = analysis;
     const analysisData = [
         {name: 'Subject', value: subject},
         {name: 'Summary', value: summary},
@@ -63,6 +64,16 @@ export default function AnalysisPanel({ analysis }) {
                             <p className={`text-gray-900`}>{item.value}</p>
                         </div>
                     ))}
+                </div>
+                <div className='
+                    px-4
+                    md:px-6
+                    pb-6
+                    border-t
+                  border-gray-200'>
+                        <DeleteButton
+                            entryId={entryId}
+                            onDeleteStart={onDeleteStart}/>
                 </div>
             </div>
         </div>

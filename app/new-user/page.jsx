@@ -1,5 +1,5 @@
-import {redirect} from "next/navigation";
-import {createNewUserIfNotExists} from "@/services/userService";
+import {redirect} from 'next/navigation';
+import {createNewUserIfNotExists} from '@/services/userService';
 
 async function createNewUser() {
     await createNewUserIfNotExists();

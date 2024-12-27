@@ -1,15 +1,17 @@
-import Link from "next/link";
-import {greatVibes} from "@/fonts/fonts";
-import NewEntryCard from "@/components/Card/NewEntryCard";
-import EntryCard from "@/components/Card/EntryCard";
-import AskAI from "@/components/AskAI";
-import {getEntries} from "@/services/journalService"
+import Link from 'next/link';
+import {greatVibes} from '@/fonts/fonts';
+import NewEntryCard from '@/components/Card/NewEntryCard';
+import EntryCard from '@/components/Card/EntryCard';
+import AskAI from '@/components/AskAI';
+import {getEntries} from '@/services/journalService'
 
 export default async function JournalPage() {
     const entries = await getEntries();
 
     return (
         <div className={`
+            min-h-screen
+            w-full
             p-4
             bg-indigo-50`}>
             <h1 className={`

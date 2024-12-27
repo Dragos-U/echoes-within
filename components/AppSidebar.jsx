@@ -1,4 +1,4 @@
-import { Home, BookOpen, ChartLine } from "lucide-react"
+import { Home, BookOpen, ChartLine } from 'lucide-react'
 import {
     Sidebar,
     SidebarContent,
@@ -8,23 +8,23 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar'
 import Link from 'next/link'
 
 const items = [
     {
-        title: "Home",
-        url: "/",
+        title: 'Home',
+        url: '/',
         icon: Home,
     },
     {
-        title: "Journal",
-        url: "/journal",
+        title: 'Journal',
+        url: '/journal',
         icon: BookOpen,
     },
     {
-        title: "History",
-        url: "/history",
+        title: 'History',
+        url: '/history',
         icon: ChartLine,
     },
 ]

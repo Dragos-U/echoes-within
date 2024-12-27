@@ -35,7 +35,8 @@ export default function NewEntryCard() {
                 hover:scale-[1.02]
                 group
                 relative
-            `}>
+            `}
+            onClick={handleOnClick}>
             <div className='px-4 py-10 flex items-center justify-center'>
                 {isLoading ? (
                     <div className='flex items-center space-x-2'>

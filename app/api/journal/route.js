@@ -1,9 +1,9 @@
-import getUserByClerkId from "@/services/authService";
+import getUserByClerkId from '@/services/authService';
 
-import {NextResponse} from "next/server";
-import {revalidatePath} from "next/cache";
-import {analyzeEntry} from "@/services/aiService";
-import {API_STATUS} from "@/constants/responseTypes";
+import {NextResponse} from 'next/server';
+import {revalidatePath} from 'next/cache';
+import {analyzeEntry} from '@/services/aiService';
+import {API_STATUS} from '@/constants/responseTypes';
 import * as journalService from '@/services/journalService'
 
 export async function POST() {

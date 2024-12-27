@@ -1,8 +1,8 @@
-import {UserButton} from "@clerk/nextjs";
-import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar"
-import {AppSidebar} from "@/components/AppSidebar"
-import {currentUser} from "@clerk/nextjs/server";
-import {outfit} from "@/fonts/fonts";
+import {UserButton} from '@clerk/nextjs';
+import {SidebarProvider, SidebarTrigger} from '@/components/ui/sidebar'
+import {AppSidebar} from '@/components/AppSidebar'
+import {currentUser} from '@clerk/nextjs/server';
+import {outfit} from '@/fonts/fonts';
 
 export default async function Dashboard({children}) {
     const user = await currentUser();

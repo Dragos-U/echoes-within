@@ -2,7 +2,7 @@ import {PromptTemplate} from "@langchain/core/prompts";
 import {Document} from 'langchain/document'
 import {loadQARefineChain} from "langchain/chains";
 import {MemoryVectorStore} from "langchain/vectorstores/memory";
-import {llm} from "@/config/config";
+import {llm} from "@/config/LLMConfig";
 import {parser} from "@/utils/parser";
 import {OpenAIEmbeddings} from "@langchain/openai";
 

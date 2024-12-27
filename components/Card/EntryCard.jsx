@@ -1,4 +1,4 @@
-import {formatDate} from "@/utils/dateFormater";
+import {formatDate} from '@/utils/dateFormater';
 
 export default function EntryCard({entry}) {
     const date = formatDate(entry.createdAt);

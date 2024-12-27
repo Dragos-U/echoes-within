@@ -1,7 +1,7 @@
 'use client'
 
-import {useState} from "react";
-import {askQuestion} from "@/services/apiService";
+import {useState} from 'react';
+import {askQuestion} from '@/services/apiService';
 
 export default function AskAI() {
     const [value, setValue] = useState('');
