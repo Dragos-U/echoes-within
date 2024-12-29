@@ -2,6 +2,7 @@ import getUserByClerkId from '@/services/authService';
 import {questionAnalysis} from '@/services/aiService';
 import {NextResponse} from 'next/server';
 
+
 export async function POST(request) {
     const {question} = await request.json();
     const user = await getUserByClerkId();

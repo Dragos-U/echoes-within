@@ -182,9 +182,10 @@ export async function questionAnalysis(question, entries) {
         const store = await MemoryVectorStore.fromDocuments(docs, embeddings);
         const relevantDocs = await store.similaritySearch(question);
 
-        const results = await chain.invoke({
-            input_documents: relevantDocs, question,
-        })
+        const results = await chain.call({
+            input_documents: relevantDocs,
+            question: question
+        });
 
         return results.output_text;
     }catch (error){

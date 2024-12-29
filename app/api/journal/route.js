@@ -9,7 +9,7 @@ import * as journalService from '@/services/journalService'
 export async function POST() {
     try {
         const user = await getUserByClerkId();
-        const entry = await journalService.createJournalEntry(user.id,'Write about your day')
+        const entry = await journalService.createJournalEntry(user.id,'')
         const analysis = await analyzeEntry(entry.content)
 
         if (analysis) {

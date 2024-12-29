@@ -17,7 +17,6 @@ export default function EditorTextArea({ value, onChange, isLoading }) {
                 </div>
             )}
             <textarea
-                disabled={isLoading}
                 className={`
                     w-full
                     h-full
@@ -30,7 +29,7 @@ export default function EditorTextArea({ value, onChange, isLoading }) {
                     ${isLoading ? 'opacity-50' : ''}`}
                 value={value}
                 onChange={onChange}
-                placeholder="Write your thoughts..."
+                placeholder="Write your thoughts and let AI give you an insight..."
             />
         </div>
     )

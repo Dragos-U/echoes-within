@@ -1,3 +1,5 @@
+'use client'
+
 import { Home, BookOpen, ChartLine } from 'lucide-react'
 import {
     Sidebar,
@@ -10,6 +12,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const items = [
     {
@@ -30,16 +33,28 @@ const items = [
 ]
 
 export function AppSidebar() {
+    const pathname = usePathname()
+
+    const isActive = (url) => {
+        if (url === '/') {
+            return pathname === url
+        }
+        return pathname.startsWith(url)
+    }
+
     return (
         <Sidebar variant='inset'>
             <SidebarContent className='font-mono'>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Menu</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild>
+                                    <SidebarMenuButton
+                                        asChild
+                                        isActive={isActive(item.url)}
+                                        tooltip={item.title}
+                                    >
                                         <Link href={item.url}>
                                             <item.icon />
                                             <span>{item.title}</span>

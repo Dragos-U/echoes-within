@@ -25,7 +25,8 @@ export default function Editor({entry}) {
                     setIsLoading(false);
                 }
             }
-        }
+        },
+        delay: 3000
     })
 
     return (

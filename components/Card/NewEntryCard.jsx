@@ -9,15 +9,18 @@ export default function NewEntryCard() {
     const [isLoading, setIsLoading] = useState(false);
 
     async function handleOnClick() {
+        if (isLoading) return;
+        setIsLoading(true)
         try {
             const data = await createNewEntry();
-            router.push(`/journal/${data.id}`);
+            if (data?.id) {
+                router.push(`/journal/${data.id}`);
+            }
         } catch (error) {
             console.error(`Error: ${error}`);
         } finally {
             setIsLoading(false)
         }
-
     }
 
     return (
