@@ -5,6 +5,7 @@ import EntryCard from '@/components/Card/EntryCard';
 import AskAI from '@/components/AskAI';
 import {getEntries} from '@/services/journalService'
 
+export const dynamic = 'force-dynamic';
 export default async function JournalPage() {
     const entries = await getEntries();
 

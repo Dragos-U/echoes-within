@@ -1,6 +1,6 @@
 import SentimentChart from '@/components/SentimentChart';
 import {getData} from '@/services/journalService';
-
+export const dynamic = 'force-dynamic';
 export default async function History() {
     const {analyses, avg} = await getData();
 
