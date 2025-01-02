@@ -6,7 +6,8 @@ import {outfit} from '@/fonts/fonts';
 
 export default async function Dashboard({children}) {
     const user = await currentUser();
-    const firstName = user.firstName;
+    const firstName = user?.firstName ?? 'there';
+    const greeting = `Hi, ${firstName}`;
 
     return (
         <div className={`relative h-screen ${outfit.className} `}>
@@ -17,7 +18,7 @@ export default async function Dashboard({children}) {
                         <div className='h-full w-full px-6 flex items-center justify-between'>
                             <SidebarTrigger/>
                             <div className='flex justify-between gap-3'>
-                                <p className='text-m'>{`Hi, ${firstName}`}</p>
+                                <p className='text-m'>{greeting}</p>
                                 <UserButton/>
                             </div>
                         </div>
