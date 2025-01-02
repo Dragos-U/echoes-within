@@ -1,7 +1,7 @@
 import getUserByClerkId from '@/services/authService';
 import {questionAnalysis} from '@/services/aiService';
 import {NextResponse} from 'next/server';
-
+import {prisma} from "@/utils/db";
 
 export async function POST(request) {
     const {question} = await request.json();
